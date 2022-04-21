@@ -1,9 +1,12 @@
 import graphene
 
-from django_graphql.api.files.schema import FileQueries
+from django_graphql.api.files.schema import FileQueries, FileMutations
 
 
 class Queries(FileQueries):
     hello = graphene.String(default_value="Hi!")
 
-schema = graphene.Schema(Queries)
+class Mutations(FileMutations):
+    pass
+
+schema = graphene.Schema(Queries, Mutations)

@@ -1,6 +1,7 @@
 import graphene
 
 from django_graphql.api.files.types import FileType
+from django_graphql.api.files.mutations import FileUpload
 from django_graphql.files.models import File
 
 
@@ -13,3 +14,6 @@ class FileQueries(graphene.ObjectType):
 
     def resolve_all_files(self, info):
         return File.objects.all()
+
+class FileMutations(graphene.ObjectType):
+    file_upload = FileUpload.Field()

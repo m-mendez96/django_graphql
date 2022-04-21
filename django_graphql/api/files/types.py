@@ -11,3 +11,5 @@ class FileType(DjangoObjectType):
         description = "Represents a file."
         only_fields = ("id", "file", "created_at")
         
+class FileInput(graphene.InputObjectType):
+    file = graphene.String(required=True, description="File.")
